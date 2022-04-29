@@ -1,0 +1,3 @@
+[submodule "eez"]
+	path = eez
+	url = https://github.com/eez-open/eez-framework
