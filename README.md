@@ -12,8 +12,10 @@ To report an issue, use the [issues page](https://github.com/eez-open/eez-flow-t
 sudo apt-get update
 sudo apt-get install -y git libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev cmake build-essential libbsd-dev
 git clone https://github.com/eez-open/eez-flow-template-sdl
-mkdir -p eez-flow-template-sdl/build/linux
-cd eez-flow-template-sdl/build/linux
+cd eez-flow-template-sdl
+git submodule update --init --recursive
+mkdir -p build/linux
+cd build/linux
 cmake ../..
 make
 ```
@@ -29,6 +31,8 @@ Start simulator with:
 Install [Visual Studio Community 2017](https://visualstudio.microsoft.com/downloads/) and [CMake](https://cmake.org/install/).
 
 Use git to clone https://github.com/eez-open/eez-flow-template-sdl.
+
+Also, execute: `git submodule update --init --recursive` inside `eez-flow-template-sdl`.
 
 Execute `cmake.bat`.
 
