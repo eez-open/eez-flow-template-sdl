@@ -1,0 +1,8 @@
+build
+.vscode/launch.json
+.vscode/.vscode/c_cpp_properties.json
+.vscode/launch.json
+
+.vscode/*.log
+
+*.eez-project-ui-state

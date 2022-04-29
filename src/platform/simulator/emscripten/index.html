@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Min EEZ Sample</title>
+
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <div id="content">
+      <div id="canvas-container">
+        <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+      </div>
+    </div>
+
+    <script>
+      var worker = new Worker("min_eez_sample.js");
+
+      const WIDTH = 480;
+      const HEIGHT = 272;
+
+      const canvas = document.getElementById("canvas");
+      canvas.width = WIDTH;
+      canvas.height = HEIGHT;
+      let ctx = canvas.getContext("2d");
+
+      let pointerEvents = [];
+
+      let wheelDeltaY = 0;
+      let wheelClicked = 0;
+
+      worker.onmessage = function (e) {
+        if (e.data.screen) {
+          var imgData = new ImageData(e.data.screen, WIDTH, HEIGHT);
+          ctx.putImageData(imgData, 0, 0);
+        }
+
+        worker.postMessage({
+          wheel: {
+            deltaY: wheelDeltaY,
+            clicked: wheelClicked,
+          },
+          pointerEvents,
+        });
+
+        wheelDeltaY = 0;
+        wheelClicked = 0;
+        pointerEvents = [];
+      };
+
+      function sendPointerEvent(event) {
+        var bbox = canvas.getBoundingClientRect();
+        pointerEvents.push({
+          x: (event.clientX - bbox.left) * (canvas.width / bbox.width),
+          y: (event.clientY - bbox.top) * (canvas.height / bbox.height),
+          pressed: event.buttons == 1 ? 1 : 0,
+        });
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      canvas.addEventListener(
+        "pointerdown",
+        (event) => {
+          if (event.buttons == 4) {
+            wheelClicked = 1;
+          }
+          canvas.setPointerCapture(event.pointerId);
+          sendPointerEvent(event);
+        },
+        true
+      );
+
+      canvas.addEventListener(
+        "pointermove",
+        (event) => {
+          sendPointerEvent(event);
+        },
+        true
+      );
+
+      canvas.addEventListener(
+        "pointerup",
+        (event) => {
+          canvas.releasePointerCapture(event.pointerId);
+          sendPointerEvent(event);
+        },
+        true
+      );
+
+      canvas.addEventListener(
+        "pointercancel",
+        (event) => {
+          canvas.releasePointerCapture(event.pointerId);
+          sendPointerEvent(event);
+        },
+        true
+      );
+
+      document.addEventListener(
+        "wheel",
+        (event) => {
+          wheelDeltaY += -event.deltaY;
+        },
+        true
+      );
+    </script>
+  </body>
+</html>
