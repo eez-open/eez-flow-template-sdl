@@ -35,8 +35,8 @@ static int g_initialized = false;
 // clang-format off
 void mountFileSystem() {
     EM_ASM(
-        FS.mkdir("/min_eez_sample");
-        FS.mount(IDBFS, {}, "/min_eez_sample");
+        FS.mkdir("/eez-flow-template-sdl");
+        FS.mount(IDBFS, {}, "/eez-flow-template-sdl");
 
         //Module.print("start file sync..");
 
