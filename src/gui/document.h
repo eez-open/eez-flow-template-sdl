@@ -173,7 +173,7 @@ enum PagesEnum {
     PAGE_ID_TOUCH_CALIBRATION_YES_NO = 3
 };
 
-extern const uint8_t assets[9722];
+extern const uint8_t assets[9773];
 
 } // namespace gui
 } // namespace eez

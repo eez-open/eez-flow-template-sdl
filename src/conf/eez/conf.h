@@ -2,8 +2,8 @@
 
 #include <stdint.h>
 
-static const uint32_t DISPLAY_WIDTH = 480;
-static const uint32_t DISPLAY_HEIGHT = 272;
+extern uint32_t DISPLAY_WIDTH;
+extern uint32_t DISPLAY_HEIGHT;
 static const uint32_t DISPLAY_BPP = 32;  // RGBA8888
 
 static const char *TITLE = "EEZ Flow App";
@@ -20,3 +20,5 @@ static const char *ICON = "eez-flow-template-sdl.png";
 #define DISPLAY_BACKGROUND_LUMINOSITY_STEP_MIN 0
 #define DISPLAY_BACKGROUND_LUMINOSITY_STEP_MAX 20
 #define DISPLAY_BACKGROUND_LUMINOSITY_STEP_DEFAULT 10
+
+static const uint32_t GUI_STATE_BUFFER_SIZE = 128 * 1024;

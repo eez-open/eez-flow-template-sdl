@@ -5,9 +5,15 @@
 void startEmscripten();
 #endif
 
+uint32_t DISPLAY_WIDTH = 480;
+uint32_t DISPLAY_HEIGHT = 272;
+
 void init() {
-    eez::initMemory();
+    eez::initAssetsMemory();
+    eez::gui::loadMainAssets(eez::gui::assets, sizeof(eez::gui::assets));
+    eez::initOtherMemory();
     eez::initAllocHeap(eez::ALLOC_BUFFER, eez::ALLOC_BUFFER_SIZE);
+
     eez::gui::display::turnOn();
     eez::gui::startThread();
 }
