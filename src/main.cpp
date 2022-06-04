@@ -11,6 +11,8 @@ uint32_t DISPLAY_HEIGHT = 272;
 void init() {
     eez::initAssetsMemory();
     eez::gui::loadMainAssets(eez::gui::assets, sizeof(eez::gui::assets));
+    DISPLAY_WIDTH = eez::gui::g_mainAssets->settings->displayWidth;
+    DISPLAY_HEIGHT = eez::gui::g_mainAssets->settings->displayHeight;
     eez::initOtherMemory();
     eez::initAllocHeap(eez::ALLOC_BUFFER, eez::ALLOC_BUFFER_SIZE);
 
