@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(eez-flow-template-sdl)
+set (PROJECT_NAME eez-flow-template-sdl)
+
+project(${PROJECT_NAME})
 
 set (CMAKE_CXX_STANDARD 17)
 
@@ -138,62 +140,63 @@ if(WIN32)
     set(SOURCES src/platform/simulator/win32/icon.rc ${src_files})
 endif()
 
-add_executable(eez-flow-template-sdl ${src_files} ${header_files})
+add_executable(${PROJECT_NAME} ${src_files} ${header_files})
 
 if(MSVC)
-    target_compile_options(eez-flow-template-sdl PRIVATE "/MP")
+    target_compile_options(${PROJECT_NAME} PRIVATE "/MP")
 endif()
 
 if (UNIX AND NOT(${CMAKE_SYSTEM_NAME} STREQUAL "Emscripten"))
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads REQUIRED)
-    target_link_libraries(eez-flow-template-sdl Threads::Threads bsd)
+    target_link_libraries(${PROJECT_NAME} Threads::Threads bsd)
 endif ()
 
-target_link_libraries(eez-flow-template-sdl ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 
 if(WIN32)
-    target_link_libraries(eez-flow-template-sdl wsock32 ws2_32)
+    target_link_libraries(${PROJECT_NAME} wsock32 ws2_32)
 
-    add_custom_command(TARGET eez-flow-template-sdl POST_BUILD
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${PROJECT_SOURCE_DIR}/../../SDL2-2.0.14/lib/x86/SDL2.dll"
-            $<TARGET_FILE_DIR:eez-flow-template-sdl>)
+            "${PROJECT_SOURCE_DIR}/$ENV{SDL2DIR}/lib/x86/SDL2.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 
-    add_custom_command(TARGET eez-flow-template-sdl POST_BUILD
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${PROJECT_SOURCE_DIR}/../../SDL2_image-2.0.4/lib/x86/libjpeg-9.dll"
-            $<TARGET_FILE_DIR:eez-flow-template-sdl>)
+            "${PROJECT_SOURCE_DIR}/$ENV{SDL2IMAGEDIR}/lib/x86/libjpeg-9.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>)
     
-    add_custom_command(TARGET eez-flow-template-sdl POST_BUILD
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${PROJECT_SOURCE_DIR}/../../SDL2_image-2.0.4/lib/x86/libpng16-16.dll"
-            $<TARGET_FILE_DIR:eez-flow-template-sdl>)
+            "${PROJECT_SOURCE_DIR}/$ENV{SDL2IMAGEDIR}/lib/x86/libpng16-16.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 
-    add_custom_command(TARGET eez-flow-template-sdl POST_BUILD
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${PROJECT_SOURCE_DIR}/../../SDL2_image-2.0.4/lib/x86/libtiff-5.dll"
-            $<TARGET_FILE_DIR:eez-flow-template-sdl>)
+            "${PROJECT_SOURCE_DIR}/$ENV{SDL2IMAGEDIR}/lib/x86/libtiff-5.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 
-    add_custom_command(TARGET eez-flow-template-sdl POST_BUILD
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${PROJECT_SOURCE_DIR}/../../SDL2_image-2.0.4/lib/x86/libwebp-7.dll"
-            $<TARGET_FILE_DIR:eez-flow-template-sdl>)
+            "${PROJECT_SOURCE_DIR}/$ENV{SDL2IMAGEDIR}/lib/x86/libwebp-7.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 
-    add_custom_command(TARGET eez-flow-template-sdl POST_BUILD
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${PROJECT_SOURCE_DIR}/../../SDL2_image-2.0.4/lib/x86/SDL2_image.dll"
-            $<TARGET_FILE_DIR:eez-flow-template-sdl>)
+            "${PROJECT_SOURCE_DIR}/$ENV{SDL2IMAGEDIR}/lib/x86/SDL2_image.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 
-    add_custom_command(TARGET eez-flow-template-sdl POST_BUILD
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${PROJECT_SOURCE_DIR}/../../SDL2_image-2.0.4/lib/x86/zlib1.dll"
-            $<TARGET_FILE_DIR:eez-flow-template-sdl>)
+            "${PROJECT_SOURCE_DIR}/$ENV{SDL2IMAGEDIR}/lib/x86/zlib1.dll"
+            $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 endif()
 
+
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Emscripten")
-    add_custom_command(TARGET eez-flow-template-sdl POST_BUILD
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         "${PROJECT_SOURCE_DIR}/src/platform/simulator/emscripten"
-        $<TARGET_FILE_DIR:eez-flow-template-sdl>)
+        $<TARGET_FILE_DIR:${PROJECT_NAME}>)
 endif()
