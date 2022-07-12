@@ -52,7 +52,8 @@
           "data": "\"Hello, world!\"",
           "style": {
             "inheritFrom": "default"
-          }
+          },
+          "timeline": []
         }
       ],
       "connectionLines": [],
@@ -1812,6 +1813,9 @@
       "alwaysBuild": false
     }
   ],
+  "readme": {
+    "readmeFile": "README.md"
+  },
   "bitmaps": [],
   "colors": [
     {
