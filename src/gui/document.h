@@ -8,39 +8,11 @@ namespace gui {
 
 enum DataEnum {
     DATA_ID_NONE = 0,
-    DATA_ID_ALERT_MESSAGE = 1,
-    DATA_ID_TOUCH_CALIBRATION_POINT = 2,
-    DATA_ID_KEYPAD_TEXT = 3,
-    DATA_ID_KEYPAD_EDIT_UNIT = 4,
-    DATA_ID_KEYPAD_SIGN_ENABLED = 5,
-    DATA_ID_KEYPAD_UNIT_ENABLED = 6,
-    DATA_ID_KEYPAD_DOT_ENABLED = 7,
-    DATA_ID_KEYPAD_OPTION1_ENABLED = 8,
-    DATA_ID_KEYPAD_OPTION1_TEXT = 9,
-    DATA_ID_KEYPAD_OPTION2_ENABLED = 10,
-    DATA_ID_KEYPAD_OPTION2_TEXT = 11,
-    DATA_ID_KEYPAD_OPTION3_ENABLED = 12,
-    DATA_ID_KEYPAD_OPTION3_TEXT = 13,
-    DATA_ID_KEYPAD_MODE = 14,
-    DATA_ID_KEYPAD_OK_ENABLED = 15
+    DATA_ID_ALERT_MESSAGE = 1
 };
 
 void data_none(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
 void data_alert_message(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_touch_calibration_point(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_text(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_edit_unit(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_sign_enabled(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_unit_enabled(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_dot_enabled(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_option1_enabled(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_option1_text(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_option2_enabled(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_option2_text(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_option3_enabled(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_option3_text(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_mode(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
-void data_keypad_ok_enabled(DataOperationEnum operation, const WidgetCursor &cursor, Value &value);
 
 typedef void (*DataOperationsFunction)(DataOperationEnum operation, const WidgetCursor &widgetCursor, Value &value);
 
@@ -53,18 +25,7 @@ enum ActionsEnum {
     ACTION_ID_CANCEL = 3,
     ACTION_ID_EDIT = 4,
     ACTION_ID_DRAG_OVERLAY = 5,
-    ACTION_ID_SCROLL = 6,
-    ACTION_ID_KEYPAD_KEY = 7,
-    ACTION_ID_KEYPAD_BACK = 8,
-    ACTION_ID_KEYPAD_UNIT = 9,
-    ACTION_ID_KEYPAD_OPTION1 = 10,
-    ACTION_ID_KEYPAD_OPTION2 = 11,
-    ACTION_ID_KEYPAD_OPTION3 = 12,
-    ACTION_ID_KEYPAD_SIGN = 13,
-    ACTION_ID_KEYPAD_OK = 14,
-    ACTION_ID_KEYPAD_CANCEL = 15,
-    ACTION_ID_TOGGLE_KEYPAD_MODE = 16,
-    ACTION_ID_KEYPAD_SPACE = 17
+    ACTION_ID_SCROLL = 6
 };
 
 void action_yes();
@@ -73,25 +34,13 @@ void action_cancel();
 void action_edit();
 void action_drag_overlay();
 void action_scroll();
-void action_keypad_key();
-void action_keypad_back();
-void action_keypad_unit();
-void action_keypad_option1();
-void action_keypad_option2();
-void action_keypad_option3();
-void action_keypad_sign();
-void action_keypad_ok();
-void action_keypad_cancel();
-void action_toggle_keypad_mode();
-void action_keypad_space();
 
 extern ActionExecFunc g_actionExecFunctions[];
 
 enum FontsEnum {
     FONT_ID_NONE = 0,
     FONT_ID_SHADOW = 1,
-    FONT_ID_MEDIUM = 2,
-    FONT_ID_GUI_ICONS = 3
+    FONT_ID_MEDIUM = 2
 };
 
 enum BitmapsEnum {
@@ -100,25 +49,21 @@ enum BitmapsEnum {
 
 enum StylesEnum {
     STYLE_ID_NONE = 0,
-    STYLE_ID_DEFAULT = 1,
-    STYLE_ID_INFO_ALERT = 2,
-    STYLE_ID_ERROR_ALERT = 3,
-    STYLE_ID_ERROR_ALERT_BUTTON = 4,
-    STYLE_ID_SELECT_ENUM_ITEM_POPUP_CONTAINER = 5,
-    STYLE_ID_SELECT_ENUM_ITEM_POPUP_CONTAINER_S = 6,
-    STYLE_ID_SELECT_ENUM_ITEM_POPUP_ITEM = 7,
-    STYLE_ID_SELECT_ENUM_ITEM_POPUP_ITEM_S = 8,
-    STYLE_ID_SELECT_ENUM_ITEM_POPUP_DISABLED_ITEM = 9,
-    STYLE_ID_SELECT_ENUM_ITEM_POPUP_DISABLED_ITEM_S = 10,
-    STYLE_ID_MENU_WITH_BUTTONS_MESSAGE = 11,
-    STYLE_ID_MENU_WITH_BUTTONS_CONTAINER = 12,
-    STYLE_ID_MENU_WITH_BUTTONS_BUTTON = 13,
-    STYLE_ID_FPS_GRAPH = 14,
-    STYLE_ID_BACKGROUND = 15,
-    STYLE_ID_TOUCH_CALIBRATION = 16,
-    STYLE_ID_NOTE_M = 17,
-    STYLE_ID_TOUCH_CALIBRATION_POINT = 18,
-    STYLE_ID_BUTTON = 19
+    STYLE_ID_INFO_ALERT = 1,
+    STYLE_ID_ERROR_ALERT = 2,
+    STYLE_ID_ERROR_ALERT_BUTTON = 3,
+    STYLE_ID_SELECT_ENUM_ITEM_POPUP_CONTAINER = 4,
+    STYLE_ID_SELECT_ENUM_ITEM_POPUP_CONTAINER_S = 5,
+    STYLE_ID_SELECT_ENUM_ITEM_POPUP_ITEM = 6,
+    STYLE_ID_SELECT_ENUM_ITEM_POPUP_ITEM_S = 7,
+    STYLE_ID_SELECT_ENUM_ITEM_POPUP_DISABLED_ITEM = 8,
+    STYLE_ID_SELECT_ENUM_ITEM_POPUP_DISABLED_ITEM_S = 9,
+    STYLE_ID_MENU_WITH_BUTTONS_MESSAGE = 10,
+    STYLE_ID_MENU_WITH_BUTTONS_CONTAINER = 11,
+    STYLE_ID_MENU_WITH_BUTTONS_BUTTON = 12,
+    STYLE_ID_FPS_GRAPH = 13,
+    STYLE_ID_BACKGROUND = 14,
+    STYLE_ID_DEFAULT = 15
 };
 
 enum ThemesEnum {
@@ -161,19 +106,15 @@ enum ColorsEnum {
     COLOR_ID_TEXT_INPUT_BORDER = 31,
 	COLOR_ID_CUSTOM_UNDEFINED = 32,
 	COLOR_ID_CUSTOM_000000 = 33,
-	COLOR_ID_CUSTOM_00FF1E = 34,
-	COLOR_ID_CUSTOM_FFFFFF = 35,
-	COLOR_ID_CUSTOM_00FF00 = 36
+	COLOR_ID_CUSTOM_00FF1E = 34
 };
 
 enum PagesEnum {
     PAGE_ID_NONE = 0,
-    PAGE_ID_MAIN = 1,
-    PAGE_ID_TOUCH_CALIBRATION = 2,
-    PAGE_ID_TOUCH_CALIBRATION_YES_NO = 3
+    PAGE_ID_MAIN = 1
 };
 
-extern const uint8_t assets[9773];
+extern const uint8_t assets[8387];
 
 } // namespace gui
 } // namespace eez

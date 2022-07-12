@@ -38,11 +38,7 @@ async function postProcessing(context) {
 
     await context.replaceInFile("src/gui/app_context.cpp", "eez-flow-template-sdl", context.projectName);
 
-    await context.renameFile("app.eez-project", context.projectName + ".eez-project");
-    await context.renameFile("gui.eez-project", context.projectName + "-gui.eez-project");
-
-    await context.replaceInFile(context.projectName + ".eez-project", "gui.eez-project", context.projectName + "-gui.eez-project");
-    await context.replaceInFile(context.projectName + "-gui.eez-project", "app.eez-project", context.projectName + ".eez-project");
+    await context.renameFile("eez-flow-template-sdl.eez-project", context.projectName + ".eez-project");
 
     await context.replaceInFile("template/manifest.json", "{{projectName}}", context.projectName);
 }

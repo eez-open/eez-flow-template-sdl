@@ -1,7 +1,6 @@
 #include <eez/core/sound.h>
 
 #include <eez/gui/gui.h>
-#include <eez/gui/keypad.h>
 
 #include <SDL.h>
 
@@ -28,8 +27,6 @@ namespace eez {
 
         AppContext *getAppContextFromId(int16_t id) { return &g_myAppContext; }
         void executeNumericKeypadOptionHook(int optionActionIndex) { }
-        Keypad *getActiveKeypad() { return nullptr; }
-        NumericKeypad *getActiveNumericKeypad() { return nullptr; }
         void action_edit() { }
     } // namespace gui
 } // namespace eez
