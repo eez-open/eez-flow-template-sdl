@@ -2,6 +2,7 @@
 
 The contributors are listed in CONTRIB.TXT. This project uses the GPL v3 license, see LICENSE.TXT.
 This project uses the [C4.1 (Collective Code Construction Contract)](http://rfc.zeromq.org/spec:22) process for contributions.
+To report an issue, use the [issues page](https://github.com/eez-open/eez-flow-template-sdl/issues) tracker.
 
 ## Build
 
