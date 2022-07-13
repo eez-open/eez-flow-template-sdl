@@ -234,6 +234,18 @@
       "backgroundColor": "slider_widget_background"
     },
     {
+      "name": "switch_widget",
+      "inheritFrom": "default",
+      "color": "switch_widget_color",
+      "backgroundColor": "switch_widget_background_off",
+      "activeColor": "switch_widget_color",
+      "activeBackgroundColor": "switch_widget_background_on",
+      "focusColor": "switch_widget_color",
+      "borderSize": "2",
+      "borderColor": "switch_widget_border",
+      "padding": "3 0"
+    },
+    {
       "name": "background",
       "inheritFrom": "default",
       "backgroundColor": "background",
@@ -275,6 +287,22 @@
       "borderSize": "2",
       "borderRadius": "8",
       "borderColor": "drop_down_list_border"
+    },
+    {
+      "name": "roller_widget",
+      "inheritFrom": "default"
+    },
+    {
+      "name": "roller_widget_selected_value",
+      "inheritFrom": "default",
+      "borderSize": "2",
+      "borderRadius": "4",
+      "borderColor": "#c0c0c0"
+    },
+    {
+      "name": "roller_widget_unselected_value",
+      "inheritFrom": "default",
+      "color": "#808080"
     }
   ],
   "fonts": [
