@@ -42,7 +42,7 @@ set SDL2IMAGEDIR=..\SDL2_image-2.0.4
 Execute `cmake.bat`:
 
 ```
-cd {{projectName}}}
+cd {{projectName}}
 .\cmake.bat
 ```
 
