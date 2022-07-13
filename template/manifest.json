@@ -1,3 +1,4 @@
 {
+    "eez-framework-location": "eez",
     "eez-project-path": "{{projectName}}.eez-project"
 }
