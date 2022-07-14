@@ -6,6 +6,8 @@ To report an issue, use the [issues page](https://github.com/eez-open/eez-flow-t
 
 ## Build
 
+First, build the project using EEZ Studio.
+
 #### Linux
 
 ```
