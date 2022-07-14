@@ -13,7 +13,7 @@ First, build the project using EEZ Studio.
 ```
 sudo apt-get update
 sudo apt-get install -y git libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev cmake build-essential libbsd-dev
-cd {{projectName}}
+cd {{projectDirPath}}
 mkdir -p build/linux
 cd build/linux
 cmake ../..
@@ -44,10 +44,10 @@ set SDL2IMAGEDIR=..\SDL2_image-2.0.4
 Execute `cmake.bat`:
 
 ```
-cd {{projectName}}
+cd {{projectDirPath}}
 .\cmake.bat
 ```
 
-Visual Studio solution is created in `{{projectName}}\build\win32`.
+Visual Studio solution is created in `{{projectDirPath}}\build\win32`.
 
 Use Visual Studio to build the solution.
