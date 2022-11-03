@@ -114,7 +114,7 @@ enum PagesEnum {
     PAGE_ID_MAIN = 1
 };
 
-extern const uint8_t assets[8387];
+extern const uint8_t assets[8363];
 
 } // namespace gui
 } // namespace eez
