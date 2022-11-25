@@ -48,10 +48,10 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Emscripten")
 endif()
 
 include_directories(
-    ./
-    ./eez/libs/agg
-    ./eez/platform/simulator
-    ./src/conf
+    ./src
+    ./eez-framework/src
+    ./eez-framework/src/eez/libs/agg
+    ./eez-framework/src/eez/platform/simulator
 )
 
 
@@ -62,15 +62,15 @@ set(header_files)
 ################################################################################
 # EEZ Framework files
 file(GLOB_RECURSE src_eez
-    eez/*.cpp
-    eez/*.c
+    ./eez-framework/src/eez/*.cpp
+    ./eez-framework/src/eez/*.c
 )
 file(GLOB_RECURSE header_eez
-    eez/*.h
+    ./eez-framework/src/eez/*.h
 )
 
 # exclude STM32 platform specific files
-set (EXCLUDE_DIR "eez/platform/stm32")
+set (EXCLUDE_DIR "./eez-framework/src/eez/platform/stm32")
 foreach (TMP_PATH ${src_eez})
     string (FIND ${TMP_PATH} ${EXCLUDE_DIR} EXCLUDE_DIR_FOUND)
     if (NOT ${EXCLUDE_DIR_FOUND} EQUAL -1)
@@ -85,7 +85,7 @@ foreach (TMP_PATH ${header_eez})
 endforeach(TMP_PATH)
 
 # exclude libscpi
-set (EXCLUDE_DIR "eez/libs/libscpi")
+set (EXCLUDE_DIR "./eez-framework/src/eez/libs/libscpi")
 foreach (TMP_PATH ${src_eez})
     string (FIND ${TMP_PATH} ${EXCLUDE_DIR} EXCLUDE_DIR_FOUND)
     if (NOT ${EXCLUDE_DIR_FOUND} EQUAL -1)
