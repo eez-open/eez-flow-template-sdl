@@ -102,7 +102,7 @@ endforeach(TMP_PATH)
 list (APPEND src_files ${src_eez})
 list (APPEND header_files ${header_eez})
 
-source_group(TREE "../../eez" PREFIX "eez" FILES ${src_eez} ${header_eez})
+source_group(TREE "../../eez-framework/src/eez" PREFIX "eez" FILES ${src_eez} ${header_eez})
 
 # TODO
 #if(MSVC)
