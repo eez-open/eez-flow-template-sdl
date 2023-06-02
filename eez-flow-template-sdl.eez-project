@@ -10,7 +10,7 @@
       "flowSupport": true,
       "displayWidth": 480,
       "displayHeight": 272,
-      "description": "Template for EEZ-GUI project running on SDL",
+      "description": "EEZ-GUI project template for the SDL",
       "keywords": "SDL",
       "targetPlatform": "Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software, emulators, and popular games including Valve's award winning catalog and many Humble Bundle games.\n\nSDL officially supports Windows, macOS, Linux, iOS, and Android. Support for other platforms may be found in the source code.\n\nSDL is written in C, works natively with C++, and there are bindings available for several other languages, including C# and Python.\n\nSDL 2.0 is distributed under the zlib license. This license allows you to use SDL freely in any software.",
       "targetPlatformLink": "https://www.libsdl.org/",
