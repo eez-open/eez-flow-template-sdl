@@ -1,4 +1,4 @@
 {
-    "eez-framework-location": "eez",
+    "eez-framework-location": "eez-framework",
     "eez-project-path": "{{projectName}}.eez-project"
 }
