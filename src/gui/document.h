@@ -114,8 +114,8 @@ enum ColorsEnum {
     COLOR_ID_TEXT_INPUT_BACKGROUND = 29,
     COLOR_ID_TEXT_INPUT_ACTIVE_BACKGROUND = 30,
     COLOR_ID_TEXT_INPUT_BORDER = 31,
-	COLOR_ID_CUSTOM_UNDEFINED = 32,
-	COLOR_ID_CUSTOM_000000 = 33,
+	COLOR_ID_CUSTOM_000000 = 32,
+	COLOR_ID_CUSTOM_FFFFFF = 33,
 	COLOR_ID_CUSTOM_00FF1E = 34,
 	COLOR_ID_CUSTOM_C0C0C0 = 35,
 	COLOR_ID_CUSTOM_808080 = 36
@@ -126,7 +126,7 @@ enum PagesEnum {
     PAGE_ID_MAIN = 1
 };
 
-extern const uint8_t assets[8971];
+extern const uint8_t assets[8959];
 
 } // namespace gui
 } // namespace eez
